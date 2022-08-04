@@ -54,29 +54,21 @@ body {
   padding: 1em;
 }
 
-#chart-container header {
-  margin-bottom: 45px;
-}
-
 #chart-container main {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  height: 25vh;
-  padding-bottom: 20px;
+  height: 35vh;
   margin-bottom: 15px;
 }
 
 .bar-container {
   height: 100%;
-  width: 20%;
-  padding: 0 7px;
-}
+  width: 14%;
 
-.amount-container {
-  background-color: black;
-  color: white;
-  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .bar {
@@ -85,6 +77,8 @@ body {
   border-radius: 5px;
 
   cursor: pointer;
+
+  width: 80%;
 }
 
 h6{
