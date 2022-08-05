@@ -1,5 +1,12 @@
 const container = document.querySelector('main');
 
+let dayOfWeekDigit = new Date().getDay();
+if(dayOfWeekDigit == 0){
+  dayOfWeekDigit = 6;
+}else{
+  dayOfWeekDigit -= 1;
+}
+
 let arrAmounts = [];
 let arrDays = [];
 
@@ -17,19 +24,35 @@ const multplier = 100 / max;
 let arrPercents = [];
 
 for(let i = 0; i < arrAmounts.length; i++) {
-  arrPercents.push((arrAmounts[i] * multplier) * 0.75);
+  arrPercents.push((arrAmounts[i] * multplier) * 0.65);
 }
-
-console.log(arrPercents)
 
 let index = 0;
 
 arrPercents.map(e => {
+  console.log(arrPercents.indexOf(e));
+
   container.innerHTML += `
     <div class="bar-container">
-      <div class="bar" style="background-color: ${e == 75 ? '#76b5bc' : '#e3745d'}; height: ${e}%"></div>
+      <div class="amount-info">$${arrAmounts[index]}</div>
+      <div class="bar" style="background-color: ${arrPercents.indexOf(e) == dayOfWeekDigit ? '#76b5bc' : '#e3745d'}; height: ${e}%"></div>
       <h6>${arrDays[index]}</h6>
     </div>
   `
   index++;
 })
+
+const bar = document.querySelectorAll('.bar');
+const amountInfo = document.querySelectorAll('.amount-info');
+
+for (let i = 0; i < bar.length; i++) {
+  bar[i].addEventListener('mouseenter', function (e) {  
+    amountInfo[i].style.visibility = "visible";
+  })
+}
+
+for (let i = 0; i < bar.length; i++) {
+  bar[i].addEventListener('mouseout', function () {  
+    amountInfo[i].style.visibility = "hidden";
+  })
+}
