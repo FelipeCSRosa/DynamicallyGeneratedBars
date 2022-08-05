@@ -69,10 +69,10 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: end;
 }
 
 .bar {
-  height: 100%;
   background-color: red;
   border-radius: 5px;
 
