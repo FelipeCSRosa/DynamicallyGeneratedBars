@@ -35,7 +35,7 @@ arrPercents.map(e => {
   container.innerHTML += `
     <div class="bar-container">
       <div class="amount-info">$${arrAmounts[index]}</div>
-      <div class="bar" style="background-color: ${arrPercents.indexOf(e) == dayOfWeekDigit ? '#76b5bc' : '#e3745d'}; height: ${e}%"></div>
+      <div class="bar myBtn" style="background-color: ${arrPercents.indexOf(e) == dayOfWeekDigit ? '#76b5bc' : '#e3745d'}; height: ${e}%"></div>
       <h6>${arrDays[index]}</h6>
     </div>
   `
@@ -55,4 +55,26 @@ for (let i = 0; i < bar.length; i++) {
   bar[i].addEventListener('mouseout', function () {  
     amountInfo[i].style.visibility = "hidden";
   })
+}
+
+
+/* Modal */
+var modal = document.getElementById("myModal");
+var btn = document.querySelectorAll(".myBtn");
+var span = document.getElementsByClassName("close")[0];
+
+for(let i = 0; i < btn.length; i++){
+  btn[i].onclick = function() {
+    modal.style.display = "block";
+  }
+}
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
 }
